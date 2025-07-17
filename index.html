@@ -1,50 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OpenAPI Snippet Tool</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 2rem;
-    }
-    textarea {
-      width: 100%;
-      height: 300px;
-      margin-top: 1rem;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <h1>OpenAPI Snippet Tool</h1>
-  <p>Paste an OpenAPI JSON URL below:</p>
-
-  <input type="text" id="urlInput" placeholder="https://example.com/openapi.json" style="width: 100%; padding: 8px;">
-  <button onclick="fetchOpenAPI()" style="margin-top: 10px;">Load Spec</button>
-
-  <textarea id="output" readonly></textarea>
-
-  <script>
-    async function fetchOpenAPI() {
-      const url = document.getElementById("urlInput").value;
-      const output = document.getElementById("output");
-
-      if (!url) {
-        output.value = "Please enter a valid URL.";
-        return;
-      }
-
-      output.value = "Loading...";
-
-      try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();
-        output.value = JSON.stringify(data, null, 2); // pretty print
-      } catch (err) {
-        output.value = "❌ Failed to load OpenAPI spec:\n" + err;
-      }
-    }
-  </script>
+<body class="dark-theme">
+  <div class="hero-screen fade-in">
+    <div class="hero-content">
+      <h1 class="hero-title" style="color: white;">Welcome to <span>OpenAPI Tool</h1>
+      <p class="hero-subtitle">Generate beautiful code snippets from OpenAPI specs with just a few clicks.</p>
+      <button class="cta-button" onclick="location.href='menu.html'">🚀 Start Snipping</button>
+    </div>
+  </div>
 </body>
 </html>

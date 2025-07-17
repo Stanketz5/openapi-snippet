@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAPI Snippet Tool</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+</head>
+<body class="tool-dark">
+  <div class="tool-container fade-in">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="sidebar-title">OpenAPI Tool</h2>
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active">Snippets</a>
+        <a href="#" class="sidebar-link">Saved Snippets</a>
+        <a href="#" class="sidebar-link">History</a>
+        <a href="#" class="sidebar-link">Settings</a>
+        <a href="#" class="sidebar-link">Support</a>
+        <a href="index.html" class="sidebar-link logout">Log Out</a>
+      </nav>
+    </aside>
+
+  <main class="tool-main">
+  <section class="tool-top">
+    <input type="text" id="urlInput" placeholder="Paste OpenAPI URL..." />
+    <<button id="loadBtn" class="glass-button">Load Spec</button>
+    <label for="fileInput" class="custom-file-upload glass-button">
+  📁 Upload JSON
+  </section>
+
+  <section class="tool-body">*,
+    <!-- Left: Endpoints -->
+    <div class="endpoints-panel">
+      <input type="text" id="searchInput" placeholder="Search endpoints..." />
+      <div id="endpoints" class="endpoints-list"></div>
+    </div>
+
+    <!-- Right: Snippet / Output -->
+    <div class="snippet-panel">
+      <label for="formatSelect">Snippet Format:</label>
+      <select id="formatSelect" onchange="updateSnippetFormat()">
+        <option value="fetch">Fetch</option>
+        <option value="curl">cURL</option>
+        <option value="bubble">Bubble</option>
+      </select>
+
+      <div id="bodyInputContainer" style="display: none;">
+        <label for="bodyInput">Request Body (JSON):</label>
+        <textarea id="bodyInput" placeholder='{ "key": "value" }'></textarea>
+      </div>
+
+      <label for="output">Raw OpenAPI Spec:</label>
+      <textarea id="output" rows="6" readonly></textarea>
+
+      <pre id="codeSnippet" class="snippet-box">// Code snippet will appear here...</pre>
+
+      <div class="actions">
+        <button class="glass-button">Copy</button>
+        <button class="glass-button">Export</button>
+        <button class="glass-button">Try Request</button>
+      </div>
+
+      <h4>Response:</h4>
+      <pre id="responseBox" class="response-box"></pre>
+    </div>
+  </section>
+</main>
+
+  </div>
+
+  <script src="tool.js"></script>
+</body>
+</html>
